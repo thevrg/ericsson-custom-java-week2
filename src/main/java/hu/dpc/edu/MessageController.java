@@ -5,4 +5,5 @@ package hu.dpc.edu;
  */
 public interface MessageController {
     public void handleSave(String message);
+    public void handleNewView();
 }

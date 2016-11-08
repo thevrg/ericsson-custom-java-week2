@@ -3,6 +3,7 @@ package hu.dpc.edu.controllerimpl;
 import hu.dpc.edu.Customer;
 import hu.dpc.edu.CustomerController;
 import hu.dpc.edu.CustomerRepository;
+import hu.dpc.edu.spring.Default;
 
 /**
  * Created by vrg on 2016. 11. 07..

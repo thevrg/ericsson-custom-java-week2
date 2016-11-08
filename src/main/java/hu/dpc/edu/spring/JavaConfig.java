@@ -25,6 +25,7 @@ public class JavaConfig {
     }
 
     @Bean
+    @Default
     public CustomerController customerController(CustomerRepository repository) {
         return new DefaultCustomerController(repository);
     }

@@ -23,7 +23,7 @@ public class SpringApplicationConfigTest {
         try(ClassPathXmlApplicationContext context =
                     new ClassPathXmlApplicationContext("classpath:application-config.xml")) {
             final CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
-            final CustomerController customerController = context.getBean(CustomerController.class);
+            final CustomerController customerController = context.getBean("customerController", CustomerController.class);
             final AuditLogger auditLogger = context.getBean(AuditLogger.class);
             final CustomComponent customComponent = context.getBean(CustomComponent.class);
 
@@ -42,7 +42,7 @@ public class SpringApplicationConfigTest {
                     new AnnotationConfigApplicationContext(JavaConfig.class)) {
 
             final CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
-            final CustomerController customerController = context.getBean(CustomerController.class);
+            final CustomerController customerController = context.getBean("customerController", CustomerController.class);
             final AuditLogger auditLogger = context.getBean(AuditLogger.class);
             final CustomComponent customComponent = context.getBean(CustomComponent.class);
             final Object hello = context.getBean("hello");

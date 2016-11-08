@@ -23,8 +23,15 @@ public class BetterSpringJavaApplicationConfigTest {
 
     @Autowired
     CustomerRepository customerRepository;
+
     @Autowired
-    CustomerController customerController;
+    @Default
+    CustomerController defaultCustomerController;
+
+
+    @Autowired
+    @Fake CustomerController fakeCustomerController;
+
     @Autowired
     AuditLogger auditLogger;
     @Autowired
@@ -35,11 +42,13 @@ public class BetterSpringJavaApplicationConfigTest {
     @Test
     public void testJavaConfiguration() {
         assertNotNull(customerRepository);
-        assertNotNull(customerController);
+        assertNotNull(defaultCustomerController);
+        assertNotNull(fakeCustomerController);
         assertNotNull(auditLogger);
         assertNotNull(customComponent);
-        assertSame(customerController, customComponent.getController());
+        assertSame(defaultCustomerController, customComponent.getController());
         assertSame(customerRepository, customComponent.getRepository());
+        assertNotSame(fakeCustomerController, defaultCustomerController);
     }
 
     @Test
